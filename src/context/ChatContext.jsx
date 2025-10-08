@@ -61,6 +61,7 @@ const ChatProvider = ({ children }) => {
         }
       ]
       setUsers(initialUsers)
+      // Actualizamos la lista de usuarios en el localstorage
       localStorage.setItem("users", JSON.stringify(initialUsers))
     }
   }, [])

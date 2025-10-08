@@ -56,10 +56,6 @@ export default function Chat() {
     setMsg("")
   }
 
-
-
-
-
   return (
     <div className="chat">
       <header className="chat-header">

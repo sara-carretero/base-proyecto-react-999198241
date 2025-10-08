@@ -1,8 +1,19 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
+
+  const navigate = useNavigate()
+
+  const handleHelp = () => {
+    // setTimeout(() => {
+    //   navigate("/help")
+    // }, 1000)
+
+    navigate("/help")
+  }
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -45,6 +56,10 @@ export default function Chat() {
     setMsg("")
   }
 
+
+
+
+
   return (
     <div className="chat">
       <header className="chat-header">
@@ -64,7 +79,7 @@ export default function Chat() {
           <button title="Camera">📷</button>
           <button title="Gallery">🖼️</button>
           <button title="Settings">⚙️</button>
-          <button title="Help">❓</button>
+          <button title="Help" onClick={handleHelp}>❓</button>
         </div>
       </header>
 

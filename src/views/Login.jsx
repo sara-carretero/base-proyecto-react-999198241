@@ -17,6 +17,8 @@ const Login = () => {
     setError(null)
 
     if (password === PASS) {
+      //Guardar sesión en localStorage para que quede activa.
+      localStorage.setItem("isLoggedIn", "true")
       setMessage("Contraseña valida, serás redirigido.")
       setTimeout(() => {
         navigate("/chat")

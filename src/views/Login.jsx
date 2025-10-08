@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import logo from "../assets/images/logo.png"
 
@@ -12,11 +12,21 @@ const Login = () => {
 
   const PASS = "pepe123"
 
+  //() => Redirigir al usuario al chat si ya abrió sesión y quiere volver al Login.
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem("isLoggedIn")
+    if (isLoggedIn === "true") {
+      navigate("/chat")
+    }
+  }, [navigate])
+
   const validatePassword = () => {
     setMessage(null)
     setError(null)
 
     if (password === PASS) {
+      //Guarda los datos en el LocalStorage al abrir sesión.
+      localStorage.setItem("isLoggedIn", "true")
       setMessage("Contraseña valida, serás redirigido.")
       setTimeout(() => {
         navigate("/chat")

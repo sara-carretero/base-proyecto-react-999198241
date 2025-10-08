@@ -1,24 +1,17 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
+import { useNavigate } from "react-router-dom"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
-
-
-
-  const handleHelp = () => {
-    // setTimeout(() => {
-    //   navigate("/help")
-    // }, 1000)
-
-    navigate("/help")
-  }
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
 
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
+
+  const navigate = useNavigate()
 
   if (!user) {
     return (
@@ -55,6 +48,17 @@ export default function Chat() {
     setMsg("")
   }
 
+  //() => Redirigimos al usuario al cliclear el botón "Help".
+  const handleHelp = () => {
+    navigate("/help")
+  }
+
+  //() => Eliminamos los datos del usuario guardados al cerrar sesión.
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn")
+    navigate("/")
+  }
+
   return (
     <div className="chat">
       <header className="chat-header">
@@ -75,6 +79,7 @@ export default function Chat() {
           <button title="Gallery">🖼️</button>
           <button title="Settings">⚙️</button>
           <button title="Help" onClick={handleHelp}>❓</button>
+          <button title="Cerrar sesión" onClick={handleLogout}>🚪</button>
         </div>
       </header>
 

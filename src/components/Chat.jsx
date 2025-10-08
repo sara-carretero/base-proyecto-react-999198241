@@ -1,11 +1,10 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
-import { useNavigate } from "react-router-dom"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
 
-  const navigate = useNavigate()
+
 
   const handleHelp = () => {
     // setTimeout(() => {

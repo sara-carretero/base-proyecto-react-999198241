@@ -1,0 +1,388 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 224 15% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 15% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 15% 15%;
+
+    --primary: 239 65% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 17% 93%;
+    --secondary-foreground: 224 15% 25%;
+
+    --muted: 220 17% 93%;
+    --muted-foreground: 224 10% 50%;
+
+    --accent: 268 80% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 239 65% 60%;
+
+    --radius: 0.75rem;
+
+    --gradient-primary: linear-gradient(135deg, hsl(239 65% 60%) 0%, hsl(268 80% 65%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(220 20% 97%) 0%, hsl(220 17% 93%) 100%);
+
+    --shadow-card: 0 4px 20px -4px hsl(239 65% 60% / 0.15);
+    --shadow-hover: 0 8px 30px -6px hsl(239 65% 60% / 0.25);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 239 65% 60%;
+  }
+
+  .dark {
+    --background: 224 20% 8%;
+    --foreground: 220 17% 93%;
+
+    --card: 224 15% 12%;
+    --card-foreground: 220 17% 93%;
+
+    --popover: 224 15% 12%;
+    --popover-foreground: 220 17% 93%;
+
+    --primary: 239 65% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 224 15% 18%;
+    --secondary-foreground: 220 17% 93%;
+
+    --muted: 224 15% 18%;
+    --muted-foreground: 224 10% 65%;
+
+    --accent: 268 80% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 224 15% 20%;
+    --input: 224 15% 20%;
+    --ring: 239 65% 60%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(239 65% 60%) 0%, hsl(268 80% 65%) 100%);
+    --gradient-subtle: linear-gradient(180deg, hsl(224 20% 8%) 0%, hsl(224 15% 12%) 100%);
+
+    --shadow-card: 0 4px 20px -4px hsl(239 65% 60% / 0.3);
+    --shadow-hover: 0 8px 30px -6px hsl(239 65% 60% / 0.4);
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 239 65% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 239 65% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Chat Application Styles */
+@layer components {
+  .app {
+    display: flex;
+    height: 100vh;
+  }
+
+  .sidebar {
+    width: 250px;
+    background-color: hsl(var(--secondary));
+    border-right: 1px solid hsl(var(--border));
+    display: flex;
+    flex-direction: column;
+  }
+
+  .search {
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid hsl(var(--border));
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    outline: none;
+  }
+
+  .search-result {
+    text-align: center;
+    margin-top: 10px;
+    color: hsl(var(--muted-foreground));
+  }
+
+  /* user list */
+  .user-list {
+    list-style: none;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    border-radius: 20px;
+    border: 1px solid hsl(var(--border));
+    background-color: transparent;
+    transition: all 0.2s;
+  }
+
+  .user:hover {
+    background-color: hsl(var(--muted));
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-info small {
+    color: hsl(var(--muted-foreground));
+    font-size: 13px;
+  }
+
+  .avatar {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    border: 2px solid hsl(var(--border));
+  }
+
+  /* chat area */
+  .chat {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-not-found {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .chat-header {
+    padding: 12px 15px;
+    border-bottom: 1px solid hsl(var(--border));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: hsl(var(--card));
+  }
+
+  .chat-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .chat-header img {
+    width: 30px;
+  }
+
+  .last-seen {
+    font-size: 12px;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .chat-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .chat-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+
+  .chat-actions button:hover {
+    transform: scale(1.1);
+  }
+
+  .chat-messages {
+    flex: 1;
+    padding: 15px;
+    background-color: hsl(var(--secondary));
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow-y: auto;
+  }
+
+  .message {
+    background: linear-gradient(135deg, hsl(var(--primary) / 0.15), hsl(var(--accent) / 0.15));
+    padding: 5px 10px;
+    border-radius: 8px;
+    align-self: flex-end;
+    max-width: 50%;
+  }
+
+  .message .time {
+    font-size: 9px;
+    display: block;
+    text-align: end;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .chat-footer {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid hsl(var(--border));
+    gap: 10px;
+    background-color: hsl(var(--card));
+  }
+
+  .chat-footer form {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+  }
+
+  .chat-footer input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 4px;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    outline: none;
+  }
+
+  .chat-footer input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.2);
+  }
+
+  .chat-footer button {
+    padding: 10px 15px;
+    border: none;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .chat-footer button:hover {
+    opacity: 0.9;
+  }
+
+  /* Login page */
+  .login-main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: var(--gradient-primary);
+    color: white;
+  }
+
+  .login-main img {
+    width: 80px;
+    margin-bottom: 15px;
+  }
+
+  .login-main h1 {
+    margin-bottom: 20px;
+    font-size: 26px;
+  }
+
+  .login-main form {
+    background-color: hsl(var(--card));
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-card);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .login-main form label {
+    font-weight: bold;
+    font-size: 14px;
+    color: hsl(var(--foreground));
+    text-align: center;
+  }
+
+  .login-main form input {
+    padding: 10px;
+    border: 1px solid hsl(var(--border));
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .login-main form input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 4px hsl(var(--primary) / 0.3);
+  }
+
+  .login-main form button {
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .login-main form button:hover {
+    opacity: 0.9;
+  }
+
+  .login-main form .text-info {
+    margin-top: 10px;
+    font-size: 13px;
+    color: hsl(var(--muted-foreground));
+  }
+}

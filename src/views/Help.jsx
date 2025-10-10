@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom"
-import '../styles/help.css'
 
-export default function Help() {
+const Help = () => {
   return (
     <section>
       <h2>Página Help</h2>
@@ -9,3 +8,5 @@ export default function Help() {
     </section>
   )
 }
+
+export default Help

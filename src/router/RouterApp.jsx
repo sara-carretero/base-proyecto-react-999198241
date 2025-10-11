@@ -17,7 +17,12 @@ const RouterApp = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/help" element={<Help />} />
+        <Route path="/help"
+          element={
+            <ProtectedRoute>
+              <Help />
+            </ProtectedRoute>
+          } />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

@@ -30,6 +30,30 @@
   border: none;
   margin: 10px;
   background: linear-gradient(135deg, #159f30, #00c6ff);
+  transition: 0.5s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.header #btn-backChat::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: #00c8ffaf;
+  transition: 0.5s;
+  z-index: -1;
+}
+
+.header #btn-backChat:hover::before {
+  width: 100%;
+}
+
+.header #btn-backChat:hover {
+  color: black;
 }
 
 .linkChat {

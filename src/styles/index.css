@@ -96,6 +96,8 @@
   background-color: #fff;
 }
 
+
+
 .chat-user {
   display: flex;
   align-items: center;
@@ -118,6 +120,10 @@
   border: none;
   cursor: pointer;
   font-size: 16px;
+}
+
+.chat-actions #linkHelp {
+  text-decoration: none;
 }
 
 .chat-messages {

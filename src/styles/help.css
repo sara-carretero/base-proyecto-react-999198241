@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.header nav {
+  background-color: rgba(255, 255, 255, 0);
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(201, 201, 201, 0.704);
+}
+
+.header h2 {
+  color: #0065d080;
+  font-size: 30px;
+  display: flex;
+  margin-left: 15px;
+}
+
+
+.header #btn-backChat {
+  padding: 15px;
+  border-radius: 10px;
+  border: none;
+  margin: 10px;
+  background: linear-gradient(135deg, #159f30, #00c6ff);
+}
+
+.linkChat {
+  color: white;
+  text-decoration: none;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+  margin: 40px 50px;
+}
+
+/*Introducción logo*/
+#logo-introduction {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+#logo-introduction h1 {
+  color: rgb(52, 52, 52);
+}
+
+#logo-introduction p {
+  color: gray;
+  font-size: 15px;
+  padding: 10px;
+}
+
+.general {
+  margin: 20px;
+}
+
+/*Funcionamiento general*/
+.title-item {
+  font-size: 25px;
+  color: rgb(47, 47, 47);
+  margin-bottom: 20px;
+}
+
+.box-conteiner {
+  display: grid;
+  grid-template-columns: repeat(2, 600px);
+  gap: 15px;
+}
+
+.box-item {
+  background-color: #dff3f9be;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(201, 201, 201, 0.251);
+  box-shadow: 10px 10px 20px -15px rgba(0, 0, 0, 0.205);
+}
+
+.box-item h3 {
+  font-size: 20px;
+  color: rgb(47, 47, 47);
+  margin-bottom: 10px;
+}
+
+.box-item p {
+  font-size: 16px;
+  letter-spacing: 0.1px;
+  line-height: 20px;
+  color: rgb(67, 67, 67);
+}
+
+.interactive {
+  transition: ease-in-out, 0.2s;
+}
+
+.interactive:hover {
+  transform: translateY(-8px);
+}
+
+.functions {
+  background-color: #f4f7fe;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgb(201, 201, 201);
+  margin: 15px 0px;
+}
+
+.functions h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.functions li {
+  margin: 8px 15px
+}
+
+.functions ol li::marker {
+  color: #1508a4;
+  font-weight: bold;
+}
+
+.functions p {
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+  color: rgb(67, 67, 67);
+}
+
+.functions span {
+  font-weight: bold;
+}
+
+/*Tecnologías utilizadas*/
+
+/*Posibles mejoras futuras*/
+
+/*Footer*/
+.help-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px;
+  border-top: 1px solid rgb(201, 201, 201);
+}
+
+.help-footer p {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: gray;
+}
+
+.help-footer p:first-child {
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+
+.help-footer p:nth-child(2) {
+  font-size: 13px;
+}
+
+/*Continuar:
+-Estilar footer.
+-Animar botón de volver a chat.
+-Estilar y agregar funciones interactivas al popup.
+-Releer y optimizar el contenido textual de la página help.
+-Ruta protegida de página Ayuda.
+-Entregar.
+*/

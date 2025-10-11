@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
 import { Link, useNavigate } from "react-router-dom"
-import Help from "../views/Help"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
@@ -98,7 +97,7 @@ export default function Chat() {
             <button title="Camera">📷</button>
             <button title="Gallery">🖼️</button>
             <button title="Settings" onClick={handleShowPopup}>⚙️</button>
-            <Link title="Help" to="/help">❓</Link>
+            <Link title="Help" to="/help" id="linkHelp">❓</Link>
             <button onClick={handleLogout}>🚪</button>
           </div>
         </header>

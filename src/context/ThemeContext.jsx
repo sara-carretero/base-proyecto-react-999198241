@@ -1,9 +1,14 @@
+//Importo hooks de react que vamos a utilizar
 import { createContext, useEffect, useContext, useState } from "react"
 
+//Creo el contexto
 const ThemeContext = createContext()
 
+//key de storage 
 const THEME_STORAGE_KEY = "app_theme";
 
+
+//Obtengo estado original => defino parametros y los inicializo
 export function getInitialTheme(storageKey = THEME_STORAGE_KEY, fallback = "light") {
   if (typeof window === "undefined") return fallback;
   try {
@@ -18,14 +23,16 @@ export function getInitialTheme(storageKey = THEME_STORAGE_KEY, fallback = "ligh
   }
 }
 
-
+//Armo el proveedor del theme
 const ThemeProvider = ({ children }) => {
 
-  const [theme, setTheme] = useState(() => getInitialTheme());
+  const [theme, setTheme] = useState(() => getInitialTheme());//--> Este es el estado que almacena que theme asignamos
 
 
   const toggleTheme = () => setTheme(t => (t === 'light' ? 'dark' : 'light'));
 
+
+  //funcion que alterna el state theme entre light y dark
   useEffect(() => {
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(theme);

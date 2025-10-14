@@ -1,0 +1,145 @@
+.cont-popup {
+  background-color: rgba(33, 33, 33, 0.261);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(2px);
+}
+
+.cont-popup .popup {
+  padding: 0px 0px 20px 20px;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.205);
+  background: var(--card);
+  border: 2px solid var(--border);
+}
+
+.popup #headerpopup {
+  display: flex;
+  justify-content: end;
+}
+
+.popup #btn-close {
+  padding: 5px 20px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(136, 163, 163);
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.popup .conteiner {
+  max-height: 50px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+/*ESTILOS DE CAMBIAR TEMA CLARO/OSCURO*/
+
+.popup .conteiner .switch {
+  height: 30px;
+  background-color: #aeaeae;
+  padding: 0 1.5rem;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 60%;
+}
+
+.popup .conteiner .switch .input {
+  display: none;
+}
+
+.popup .conteiner .switch .rail {
+  position: relative;
+  width: 60px;
+  height: 15px;
+  background-color: #fff;
+  border-radius: 3rem;
+}
+
+.popup .conteiner .switch .rail .circle {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(95, 95, 95);
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: transLateY(-50%);
+  left: 0;
+  transition: transform 0.4s;
+}
+
+.popup .conteiner .switch .indicator {
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin-left: 1.5rem;
+  transition: 0.4s;
+}
+
+.popup .conteiner .switch .input:checked~.rail .circle {
+  transform: transLate(54px, -50%);
+}
+
+.popup .conteiner .switch .input:checked~.indicator {
+
+  background-color: black;
+}
+
+/*ESTILOS DE CAMBIAR NOMBRE DE USUARIO*/
+.popup #changeName {
+  margin-top: 10px;
+}
+
+.popup #changeName input {
+  padding: 5px;
+  width: 50%;
+}
+
+/*ESTILOS DE CAMBIAR IDIOMA*/
+
+.popup #changeLanguage {
+  margin-top: 10px;
+}
+
+.popup #changeLanguage #selector {
+  padding: 5px;
+  width: 50%;
+}
+
+/*ESTILOS DEL BOTÓN GUARDAR CAMBIOS*/
+
+.cont-popup .cont-btn-save {
+  display: flex;
+  justify-content: center;
+}
+
+.cont-popup #btn-save {
+  margin-top: 20px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 10px 14px;
+  background: var(--btn-bg);
+  color: var(--btn-fg);
+  cursor: pointer;
+  transition: opacity .15s ease, transform .05s ease;
+}
+
+.cont-popup #btn-save:hover {
+  opacity: .9;
+}
+
+.cont-popup #btn-save:active {
+  transform: translateY(1px);
+}

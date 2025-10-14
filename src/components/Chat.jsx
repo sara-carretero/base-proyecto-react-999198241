@@ -1,10 +1,12 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
+import { useTheme } from "../context/ThemeContext";
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
   const [showPopup, setShowPopup] = useState(false)
+  const { theme, toggleTheme } = useTheme();
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -69,13 +71,40 @@ export default function Chat() {
       {
         showPopup === true && <section className="cont-popup">
           <div className="popup">
+            <div id="headerpopup">
+              <button onClick={handleClosePopup} id="btn-close">X</button>
+            </div>
             <h2>Configuración de Chat</h2>
-            <h3>Cambiar tema:</h3>
-            <select name="" id="">
-              <option value="">Claro</option>
-              <option value="">Oscuro</option>
-            </select><br></br>
-            <button onClick={handleClosePopup}>Cerrar</button>
+
+            <div class="conteiner">
+              <h4>Tema</h4>
+              <label class="switch">
+                <input type="checkbox" class="input" onClick={toggleTheme} />
+                Cambiar a {theme === "dark" ? "light" : "dark"}
+                <div class="rail">
+                  <span class="circle"></span>
+                </div>
+                <span class="indicator"></span>
+              </label>
+            </div>
+
+            <div id="changeName">
+              <h4>Nombre de Usuario</h4>
+              <input
+                type="text"
+                placeholder="User name"
+              />
+            </div>
+            <div id="changeLanguage">
+              <h4>Idioma</h4>
+              <select name="" id="selector">
+                <option value="">Español</option>
+                <option value="">Inglés</option>
+              </select><br></br>
+            </div>
+            <div class="cont-btn-save">
+              <button id="btn-save">Guardar cambios</button>
+            </div>
           </div>
         </section>
       }

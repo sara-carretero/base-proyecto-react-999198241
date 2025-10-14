@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom"
-import "../styles/help.css"
 import logo from "../assets/images/logo.png"
 
 const Help = () => {

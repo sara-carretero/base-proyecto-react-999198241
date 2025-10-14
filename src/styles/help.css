@@ -43,7 +43,8 @@
   right: 0;
   width: 0;
   height: 100%;
-  background-color: #00c8ffaf;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #a9ecff, #00c8ffaf);
   transition: 0.5s;
   z-index: -1;
 }

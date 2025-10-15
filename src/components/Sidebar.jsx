@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react"
 import { useChat } from "../context/ChatContext"
-import { useTheme } from "../context/ThemeContext"
 
 export default function Sidebar() {
   const { users, setSelectedUser } = useChat()
   const [usersToRender, setUsersToRender] = useState(users)
-  const { theme } = useTheme();
 
   // 🔄 Cada vez que cambien los usuarios globales, actualizamos la lista a renderizar
   useEffect(() => {

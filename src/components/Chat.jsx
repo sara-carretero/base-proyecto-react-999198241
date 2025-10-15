@@ -5,11 +5,13 @@ import { Link, useNavigate } from "react-router-dom"
 
 export default function Chat() {
   const [msg, setMsg] = useState("")
+  const [name, setName] = useState()
   const [showPopup, setShowPopup] = useState(false)
-  const { theme, toggleTheme } = useTheme();
+  const { theme, toggleTheme } = useTheme()
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
+
 
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
@@ -66,6 +68,28 @@ export default function Chat() {
     setShowPopup(false)
   }
 
+  const handleRename = (event) => {
+    setName(event.target.value)
+  }
+
+  const handleSave = (event) => {
+    event.preventDefault()
+
+    const newName = name
+
+    if (newName.length > 0) {
+      const updatedUsers = users.map(u =>
+        u.id === user.id
+          ? { ...u, name: [newName] }
+          : u
+      )
+      setUsers(updatedUsers)
+    }
+
+    setName("")
+
+  }
+
   return (
     <>
       {
@@ -76,34 +100,36 @@ export default function Chat() {
             </div>
             <h2>Configuración de Chat</h2>
 
-            <div class="conteiner">
-              <h4>Tema</h4>
-              <label class="switch">
-                <input type="checkbox" class="input" onClick={toggleTheme} />
+            <div className="conteiner">
+              <label><h4>Tema</h4></label>
+              <label className="switch">
+                <input type="checkbox" className="input" onClick={toggleTheme} />
                 Cambiar a {theme === "dark" ? "light" : "dark"}
-                <div class="rail">
-                  <span class="circle"></span>
+                <div className="rail">
+                  <span className="circle"></span>
                 </div>
-                <span class="indicator"></span>
+                <span className="indicator"></span>
               </label>
             </div>
 
             <div id="changeName">
-              <h4>Nombre de Usuario</h4>
+              <label><h4>Nombre de Usuario</h4></label>
               <input
                 type="text"
-                placeholder="User name"
+                placeholder="Rename"
+                onChange={handleRename}
+                value={name}
               />
             </div>
             <div id="changeLanguage">
-              <h4>Idioma</h4>
+              <label><h4>Idioma</h4></label>
               <select name="" id="selector">
                 <option value="">Español</option>
                 <option value="">Inglés</option>
               </select><br></br>
             </div>
-            <div class="cont-btn-save">
-              <button id="btn-save">Guardar cambios</button>
+            <div className="cont-btn-save">
+              <button id="btn-save" onClick={handleSave}>Guardar cambios</button>
             </div>
           </div>
         </section>
@@ -127,7 +153,7 @@ export default function Chat() {
             <button title="Gallery">🖼️</button>
             <button title="Settings" onClick={handleShowPopup}>⚙️</button>
             <Link title="Help" to="/help" id="linkHelp">❓</Link>
-            <button onClick={handleLogout}>🚪</button>
+            <button title="Sign out" onClick={handleLogout}>🚪</button>
           </div>
         </header>
 

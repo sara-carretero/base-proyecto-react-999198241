@@ -12,7 +12,7 @@
 .cont-popup .popup {
   padding: 0px 0px 20px 20px;
   border-radius: 10px;
-  width: 60%;
+  width: 30%;
   box-shadow: 10px 10px 15px -5px rgba(0, 0, 0, 0.205);
   background: var(--card);
   border: 2px solid var(--border);
@@ -21,6 +21,7 @@
 .popup #headerpopup {
   display: flex;
   justify-content: end;
+  width: 100%;
 }
 
 .popup #btn-close {
@@ -51,7 +52,7 @@
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 60%;
+  width: 90%;
 }
 
 .popup .conteiner .switch .input {
@@ -104,7 +105,7 @@
 
 .popup #changeName input {
   padding: 5px;
-  width: 50%;
+  width: 90%;
 }
 
 /*ESTILOS DE CAMBIAR IDIOMA*/
@@ -115,7 +116,7 @@
 
 .popup #changeLanguage #selector {
   padding: 5px;
-  width: 50%;
+  width: 90%;
 }
 
 /*ESTILOS DEL BOTÓN GUARDAR CAMBIOS*/
@@ -123,6 +124,7 @@
 .cont-popup .cont-btn-save {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .cont-popup #btn-save {

@@ -96,6 +96,10 @@
   background-color: #fff;
 }
 
+.chat-header #view-contactsBtn {
+  display: none;
+}
+
 .chat-user {
   display: flex;
   align-items: center;
@@ -123,6 +127,11 @@
 
 .chat-actions #linkHelp {
   text-decoration: none;
+}
+
+.chat-actions .chat-menu .hamburgerBtn,
+.optionBtn {
+  display: none;
 }
 
 .chat-messages {
@@ -306,18 +315,71 @@ html.light {
 
 
 /* Resposive mínimo para mobile */
-@media (max-width: 510px) {
+@media (max-width: 780px) {
 
+  header .chat-user .user-name {
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .popup {
+    width: 100%;
+  }
+}
+
+@media (max-width: 660px) {
   .sidebar {
     display: none;
   }
 
-  header {
+  .chat-header #view-contactsBtn {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
+@media (max-width:450px) {
+  .chat-actions .actionsBtn {
+    display: none;
+  }
+
+  .chat-actions .chat-menu .hamburgerBtn {
+    display: flex;
+
+  }
+
+  .optionBtn {
+    display: flex;
     flex-direction: column;
-
+    position: fixed;
+    top: 50px;
+    right: 15px;
+    padding: 10px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    z-index: 1000;
   }
 
-  .popup {
-    width: 80%;
+  .optionBtn button,
+  .optionBtn #linkHelp {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--fg);
+    padding: 8px;
+    text-align: left;
+    transition: background-color 0.2s;
   }
+
+  .optionBtn button:hover,
+  .optionBtn #linkHelp:hover {
+    width: 100%;
+    background: var(--border);
+  }
+
 }

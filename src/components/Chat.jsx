@@ -10,6 +10,7 @@ export default function Chat() {
   const [showPopup, setShowPopup] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const { text, language, toggleLanguage } = useLanguage()
+  const [showMenu, setShowMenu] = useState(false);
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -74,6 +75,7 @@ export default function Chat() {
     setName(event.target.value)
   }
 
+  //() => Botón para guardar los cambios de nombre se usuario.
   const handleSave = (event) => {
     event.preventDefault()
 
@@ -92,9 +94,7 @@ export default function Chat() {
 
   }
 
-  const handleLanguage = (event) => {
-    console.log(event.target.value)
-  }
+  const toggleMenu = () => setShowMenu(prev => !prev);
 
 
   return (
@@ -145,22 +145,54 @@ export default function Chat() {
         <header className="chat-header">
           <div>
             <div className="chat-user">
+              <div>
+                <button title={"contacts"} id="view-contactsBtn">⬅️</button>
+              </div>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4YreOWfDX3kK-QLAbAL4ufCPc84ol2MA8Xg&s"
                 alt={user.name}
                 className="chat-avatar"
               />
-              <strong>{user.name}</strong>
-              {user.lastSeen !== "" && <span className="last-seen">{text.lastSeen} {user.lastSeen}</span>}
+              <div class="user-name">
+                <strong>{user.name}</strong>
+                {user.lastSeen !== "" && <span className="last-seen">{text.lastSeen} {user.lastSeen}</span>}
+              </div>
+
             </div>
           </div>
 
           <div className="chat-actions">
-            <button title={text.cameraBtn}>📷</button>
-            <button title={text.galleryBtn}>🖼️</button>
-            <button title={text.settingsBtn} onClick={handleShowPopup}>⚙️</button>
-            <Link title={text.helpBtn} to="/help" id="linkHelp">❓</Link>
-            <button title={text.signoutBtn} onClick={handleLogout}>🚪</button>
+
+            <div className="chat-menu">
+              {/* Botón hamburguesa */}
+              <button
+                className="hamburgerBtn"
+                onClick={toggleMenu}
+                aria-label="Toggle menu"
+              >
+                ☰
+              </button>
+
+              {/* Opciones del menú */}
+              {showMenu && (
+                <div className="optionBtn">
+                  <button >📷 {text.cameraBtn}</button>
+                  <button >🖼️ {text.galleryBtn}</button>
+                  <button onClick={handleShowPopup}>⚙️ {text.settingsBtn}</button>
+                  <Link to="/help" id="linkHelp">❓{text.helpBtn}</Link>
+                  <button onClick={handleLogout}>🚪{text.signoutBtn}</button>
+                </div>
+              )}
+            </div>
+
+            <div className="actionsBtn">
+              <button title={text.cameraBtn}>📷</button>
+              <button title={text.galleryBtn}>🖼️</button>
+              <button title={text.settingsBtn} onClick={handleShowPopup}>⚙️</button>
+              <Link title={text.helpBtn} to="/help" id="linkHelp">❓</Link>
+              <button title={text.signoutBtn} onClick={handleLogout}>🚪</button>
+            </div>
+
           </div>
         </header>
 

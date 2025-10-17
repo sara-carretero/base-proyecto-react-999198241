@@ -1,5 +1,5 @@
 //Importo hooks de react que vamos a utilizar
-import { createContext, useContext, useState } from "react"
+import { createContext, useContext, useEffect, useState } from "react"
 
 //Defino y creo el contexto
 const LanguageContext = createContext()
@@ -103,14 +103,26 @@ const TEXTS = {
 };
 
 //Armo el proveedor del theme
-const LanguangeProvider = ({ children }) => {
+const LanguageProvider = ({ children }) => {
 
   const [language, setLanguage] = useState('en') //--> Este es el estado que almacena que theme asignamos
+
+  // Al cargar, leer idioma guardado
+  useEffect(() => {
+    const savedLang = localStorage.getItem('language');
+    if (savedLang) {
+      setLanguage(savedLang);
+    }
+  }, []);
+
+  // Guardar idioma cuando cambia
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
 
   //funcion que alterna 
   const toggleLanguage = () => setLanguage(l => (l === 'es' ? 'en' : 'es'));
-
 
   const text = TEXTS[language];
 
@@ -123,4 +135,4 @@ const LanguangeProvider = ({ children }) => {
 
 const useLanguage = () => useContext(LanguageContext)
 
-export { useLanguage, LanguangeProvider }
+export { useLanguage, LanguageProvider }

@@ -9,7 +9,7 @@ export default function Chat() {
   const [name, setName] = useState()
   const [showPopup, setShowPopup] = useState(false)
   const { theme, toggleTheme } = useTheme()
-  const { text, toggleLanguage } = useLanguage()
+  const { text, language, toggleLanguage } = useLanguage()
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -130,7 +130,7 @@ export default function Chat() {
             </div>
             <div id="changeLanguage">
               <label><h4>{text.languageLabel}</h4></label>
-              <select name="" id="selector" onChange={toggleLanguage}>
+              <select id="selector" value={language} onChange={toggleLanguage} >
                 <option value="en">{text.languageEnglish}</option>
                 <option value="es">{text.languageSpanish}</option>
               </select><br></br>

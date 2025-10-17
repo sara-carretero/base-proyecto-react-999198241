@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react"
 import { useChat } from "../context/ChatContext"
+import { useLanguage } from "../context/LanguageContext"
 
 export default function Sidebar() {
   const { users, setSelectedUser } = useChat()
   const [usersToRender, setUsersToRender] = useState(users)
+  const { text } = useLanguage()
 
   // 🔄 Cada vez que cambien los usuarios globales, actualizamos la lista a renderizar
   useEffect(() => {
@@ -23,7 +25,7 @@ export default function Sidebar() {
     <div className="sidebar">
       <input
         type="text"
-        placeholder="Search..."
+        placeholder={text.searchInput}
         className="search"
         onChange={handleChange}
       />

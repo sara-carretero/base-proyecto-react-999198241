@@ -8,8 +8,8 @@ const Help = () => {
     <>
       <header class="header">
         <nav>
-          <button id="btn-backChat"><Link to="/chat" class="linkChat">← Volver al Chat</Link></button>
-          <h2>Documentación</h2>
+          <Link to="/chat" id="linkChat">← Volver al Chat</Link>
+          <h2 id="title">Documentación</h2>
         </nav>
       </header>
       <main class="info">
@@ -60,6 +60,9 @@ const Help = () => {
                 <p><span>Conversación:</span>Envía mensajes que se guardan automáticamente en tu navegador.</p>
               </li>
               <li>
+                <p><span>Configuración:</span>Modifica el tema, nombre de usuario e idioma del sistema. Los cambios se verán reflejados incluso después de cerrar la aplicación.</p>
+              </li>
+              <li>
                 <p><span>Persistencia: </span>Tus mensajes y la sesión permanecen disponibles incluso después de cerrar el navegador.</p>
               </li>
 
@@ -74,19 +77,19 @@ const Help = () => {
           <div class="box-conteiner">
             <div class="box-item interactive">
               <h3>⚛️ React</h3>
-              <p></p>
+              <p>Biblioteca para interfaces de usuario</p>
             </div>
             <div class="box-item interactive">
               <h3>📘 TypeScript</h3>
-              <p></p>
+              <p>JavaScript con tipado estático</p>
             </div>
             <div class="box-item interactive">
               <h3>🧭React Router</h3>
-              <p></p>
+              <p>Navegación entre páginas</p>
             </div>
             <div class="box-item interactive">
               <h3>💾LocalStorage</h3>
-              <p></p>
+              <p>Persistencia de datos</p>
             </div>
           </div>
 
@@ -104,17 +107,15 @@ const Help = () => {
             </div>
             <div class="box-item">
               <h3>📱 Estilo y diseño responsive</h3>
-              <p> Mejorar la interfaz con una librería como Tailwind CSS o Material UI, y adaptarla a dispositivos móviles.</p>
+              <p> Mejorar la interfaz y adaptarla a dispositivos móviles.</p>
             </div>
             <div class="box-item">
               <h3>🖼️ Soporte multimedia</h3>
-              <p> Permitir el envío de imágenes, videos, audios y archivos adjuntos. Multimedia y Archivos
-                Añadir soporte para enviar imágenes, videos, documentos y otros archivos adjuntos en las conversaciones.</p>
+              <p> Permitir el envío de imágenes, videos, audios y archivos adjuntos en las conversaciones.</p>
             </div>
             <div class="box-item">
               <h3>🔔 Notificaciones</h3>
-              <p>  Añadir notificaciones en tiempo real usando WebSockets o Firebase para una experiencia más fluida. Notificaciones Push
-                Implementar notificaciones del navegador para alertar a los usuarios cuando reciban nuevos mensajes, incluso si la aplicación está en segundo plano.</p>
+              <p>  Añadir notificaciones del navegador en tiempo real para alertar a los usuarios cuando reciban nuevos mensajes, incluso si la aplicación está en segundo plano.</p>
             </div>
             <div class="box-item">
               <h3>🔎 Búsqueda de Mensajes</h3>
@@ -122,8 +123,7 @@ const Help = () => {
             </div>
             <div class="box-item">
               <h3>👥 Soporte multiconversación</h3>
-              <p> Permitir conversaciones entre múltiples usuarios o grupos.Grupos y Canales
-                Permitir la creación de chats grupales donde múltiples usuarios puedan participar en una misma conversación.</p>
+              <p> Permitir la creación de chats grupales donde múltiples usuarios puedan participar en una misma conversación.</p>
             </div>
             <div class="box-item">
               <h3>👁️‍🗨️ Cifrado End-to-End</h3>

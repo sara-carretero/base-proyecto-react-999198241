@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useChat } from "../context/ChatContext"
 import { useTheme } from "../context/ThemeContext";
+import { useLanguage } from "../context/LanguageContext"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Chat() {
@@ -8,6 +9,7 @@ export default function Chat() {
   const [name, setName] = useState()
   const [showPopup, setShowPopup] = useState(false)
   const { theme, toggleTheme } = useTheme()
+  const { text, toggleLanguage } = useLanguage()
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers } = useChat()
@@ -90,6 +92,11 @@ export default function Chat() {
 
   }
 
+  const handleLanguage = (event) => {
+    console.log(event.target.value)
+  }
+
+
   return (
     <>
       {
@@ -98,13 +105,13 @@ export default function Chat() {
             <div id="headerpopup">
               <button onClick={handleClosePopup} id="btn-close">X</button>
             </div>
-            <h2>Configuración de Chat</h2>
+            <h2>{text.popupTitle}</h2>
 
             <div className="conteiner">
-              <label><h4>Tema</h4></label>
+              <label><h4>{text.themeLabel}</h4></label>
               <label className="switch">
                 <input type="checkbox" className="input" onClick={toggleTheme} />
-                Cambiar a {theme === "dark" ? "light" : "dark"}
+                {theme === "dark" ? "light" : "dark"}
                 <div className="rail">
                   <span className="circle"></span>
                 </div>
@@ -113,7 +120,7 @@ export default function Chat() {
             </div>
 
             <div id="changeName">
-              <label><h4>Nombre de Usuario</h4></label>
+              <label><h4>{text.renameUserLabel}</h4></label>
               <input
                 type="text"
                 placeholder="Rename"
@@ -122,14 +129,14 @@ export default function Chat() {
               />
             </div>
             <div id="changeLanguage">
-              <label><h4>Idioma</h4></label>
-              <select name="" id="selector">
-                <option value="">Español</option>
-                <option value="">Inglés</option>
+              <label><h4>{text.languageLabel}</h4></label>
+              <select name="" id="selector" onChange={toggleLanguage}>
+                <option value="es">{text.languageSpanish}</option>
+                <option value="en">{text.languageEnglish}</option>
               </select><br></br>
             </div>
             <div className="cont-btn-save">
-              <button id="btn-save" onClick={handleSave}>Guardar cambios</button>
+              <button id="btn-save" onClick={handleSave}>{text.popupSaveBtn}</button>
             </div>
           </div>
         </section>
@@ -149,11 +156,11 @@ export default function Chat() {
           </div>
 
           <div className="chat-actions">
-            <button title="Camera">📷</button>
-            <button title="Gallery">🖼️</button>
-            <button title="Settings" onClick={handleShowPopup}>⚙️</button>
-            <Link title="Help" to="/help" id="linkHelp">❓</Link>
-            <button title="Sign out" onClick={handleLogout}>🚪</button>
+            <button title={text.cameraBtn}>📷</button>
+            <button title={text.galleryBtn}>🖼️</button>
+            <button title={text.settingsBtn} onClick={handleShowPopup}>⚙️</button>
+            <Link title={text.helpBtn} to="/help" id="linkHelp">❓</Link>
+            <button title={text.signoutBtn} onClick={handleLogout}>🚪</button>
           </div>
         </header>
 
@@ -170,7 +177,7 @@ export default function Chat() {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              placeholder="Enter text here..."
+              placeholder={text.msjInput}
               onChange={handleChange}
               value={msg}
             />

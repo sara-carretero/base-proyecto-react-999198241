@@ -16,7 +16,7 @@
   border-bottom: 1px solid rgba(201, 201, 201, 0.704);
 }
 
-.header h2 {
+.header #title {
   color: #0065d080;
   font-size: 30px;
   display: flex;
@@ -24,19 +24,23 @@
 }
 
 
-.header #btn-backChat {
+.header #linkChat {
+  color: white;
+  text-decoration: none;
   padding: 15px;
   border-radius: 10px;
   border: none;
   margin: 10px;
   background: linear-gradient(135deg, #159f30, #00c6ff);
+  box-shadow: 10px 20px -15px rgba(0, 0, 0, 0.205);
   transition: 0.5s;
   position: relative;
   overflow: hidden;
   z-index: 1;
+  cursor: pointer;
 }
 
-.header #btn-backChat::before {
+.header #linkChat::before {
   content: '';
   position: absolute;
   top: 0;
@@ -49,17 +53,12 @@
   z-index: -1;
 }
 
-.header #btn-backChat:hover::before {
+.header #linkChat:hover::before {
   width: 100%;
 }
 
-.header #btn-backChat:hover {
+.header #linkChat:hover {
   color: black;
-}
-
-.linkChat {
-  color: white;
-  text-decoration: none;
 }
 
 .info {
@@ -136,7 +135,8 @@
 }
 
 .functions {
-  background-color: #f4f7fe;
+  background: var(--muted-bg);
+  color: var(--muted-fg);
   padding: 20px;
   border-radius: 10px;
   border: 1px solid rgb(201, 201, 201);
@@ -196,11 +196,24 @@
   font-size: 13px;
 }
 
+@media (max-width: 780px) {
+  .box-conteiner {
+    grid-template-columns: repeat(1, 100%);
+  }
+}
+
 /*Continuar:
--Estilar footer.
--Animar botón de volver a chat.
--Estilar y agregar funciones interactivas al popup.
+-✅Estilar footer.
+-✅Animar botón de volver a chat.
+-✅Estilar y agregar funciones interactivas al popup.
+-✅Ruta protegida de página Ayuda.
+-✅Hacer que funcione la configuración 'Idioma' del popup.
+-Respuestas automáticas a cada msj enviado. (Sólo disponibles para contactos online).
+-Agregar lupa al search del sidebar.
+-Diseño simulando el escribiendo.
+-Detallar colores de los estilos. Controlar que todo esté estético.
+-Eliminar comentarios innecesarios y código excesivo. Que quede lo más limpio posible.
+-✅Crear el REDME.md: describiendo brevemente las nuevas funcionalidades implementadas.
 -Releer y optimizar el contenido textual de la página help.
--Ruta protegida de página Ayuda.
 -Entregar.
 */

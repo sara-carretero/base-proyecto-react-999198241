@@ -110,8 +110,8 @@ export default function Chat() {
             <div className="conteiner">
               <label><h4>{text.themeLabel}</h4></label>
               <label className="switch">
-                <input type="checkbox" className="input" onChange={toggleTheme} />
-                {theme === "dark" ? "light" : "dark"}
+                <input type="checkbox" className="input" onChange={toggleTheme} checked={theme === 'dark'} />
+                {theme === "dark" ? text.themeDark : text.themeLight}
                 <div className="rail">
                   <span className="circle"></span>
                 </div>

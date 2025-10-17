@@ -60,7 +60,7 @@ const Help = () => {
                 <p><span>Conversación:</span>Envía mensajes que se guardan automáticamente en tu navegador.</p>
               </li>
               <li>
-                <p><span>Configuración:</span>Modifica el tema, nombre de usuario e idioma del sistema. Los cambios se verán reflejados incluso después de cerrar la aplicación.</p>
+                <p><span>Configuración:</span>Modifica el tema del chat, nombre de usuario e idioma del sistema. Los cambios se verán reflejados incluso después de cerrar la aplicación.</p>
               </li>
               <li>
                 <p><span>Persistencia: </span>Tus mensajes y la sesión permanecen disponibles incluso después de cerrar el navegador.</p>
@@ -106,10 +106,6 @@ const Help = () => {
               <p> Almacenar los usuarios y mensajes en una base de datos en lugar de localStorage permitiría mantener los datos incluso desde diferentes dispositivos. para almacenar mensajes de forma permanente y sincronizar entre dispositivos.</p>
             </div>
             <div class="box-item">
-              <h3>📱 Estilo y diseño responsive</h3>
-              <p> Mejorar la interfaz y adaptarla a dispositivos móviles.</p>
-            </div>
-            <div class="box-item">
               <h3>🖼️ Soporte multimedia</h3>
               <p> Permitir el envío de imágenes, videos, audios y archivos adjuntos en las conversaciones.</p>
             </div>
@@ -143,7 +139,7 @@ const Help = () => {
       </main>
 
       <footer class="help-footer">
-        <p>Chat App • Clon de Whatsapp </p>
+        <p> Clon de Whatsapp </p>
         <p>&copy; 2025 Proyecto frontend - Curso Fullstack UTN</p>
       </footer>
 

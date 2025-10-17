@@ -16,13 +16,16 @@ const TEXTS = {
 
     //Sidebar
     searchInput: "Buscar...",
+    searchResult: "No se encontró ninguna búsqueda...",
 
     //Contacts
     statusOn: "En linea",
     statusOff1: "3 horas atrás",
     statusOff2: "úl. vez hace 1 minuto atrás",
+    lastSeen: "Últ. vez:",
 
     //Chat
+    userNotFound: "No hay usuario seleccionado...",
     cameraBtn: "Cámara",
     galleryBtn: "Galería",
     settingsBtn: "Configuración",
@@ -33,6 +36,8 @@ const TEXTS = {
     //Popup
     popupTitle: "Configuración",
     themeLabel: "Tema",
+    themeDark: "🌙Oscuro",
+    themeLight: "☀️Claro",
     renameUserLabel: "Nombre de Usuario",
     renameUserInput: "Nuevo nombre",
     languageLabel: "Idioma",
@@ -58,11 +63,16 @@ const TEXTS = {
 
     //Sidebar
     searchInput: "Search...",
+    searchResult: "No search found...",
+
+    //Contacts
     statusOn: "online",
     statusOff1: "3 hours ago",
     statusOff2: "1 minute ago",
+    lastSeen: "Last seen:",
 
     //Chat
+    userNotFound: "No user selected...",
     cameraBtn: "Camera",
     galleryBtn: "Gallery",
     settingsBtn: "Settings",
@@ -73,6 +83,8 @@ const TEXTS = {
     //Popup
     popupTitle: "Settings",
     themeLabel: "Theme",
+    themeDark: "🌙Dark",
+    themeLight: "☀️Light",
     renameUserLabel: "User Name",
     renameUserInput: "Rename",
     languageLabel: "Language",

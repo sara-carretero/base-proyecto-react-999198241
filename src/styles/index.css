@@ -260,6 +260,9 @@ form .text-info {
 :root {
   --bg: #ffffff;
   --fg: #111111;
+  --title: #0065d080;
+  --logo: #343434;
+  --text: #2f2f2f;
   --muted-bg: #f4f7fe;
   --muted-fg: #2f2f2f;
   --border: #e5e7eb;
@@ -274,6 +277,9 @@ form .text-info {
 html.dark {
   --bg: #0f1115;
   --fg: #e5e7eb;
+  --title: #97c7fabb;
+  --logo: #acacac;
+  --text: #919191;
   --muted-bg: #c9caca;
   --muted-fg: #2f2f2f;
   --border: #1f2937;
@@ -297,7 +303,6 @@ html.light {
   color: var(--fg);
   transition: background-color .2s ease, color .2s ease;
 }
-
 
 
 /* Resposive mínimo para mobile */

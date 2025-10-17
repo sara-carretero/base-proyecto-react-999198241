@@ -17,7 +17,7 @@
 }
 
 .header #title {
-  color: #0065d080;
+  color: var(--title);
   font-size: 30px;
   display: flex;
   margin-left: 15px;
@@ -79,7 +79,7 @@
 }
 
 #logo-introduction h1 {
-  color: rgb(52, 52, 52);
+  color: var(--logo);
 }
 
 #logo-introduction p {
@@ -95,7 +95,7 @@
 /*Funcionamiento general*/
 .title-item {
   font-size: 25px;
-  color: rgb(47, 47, 47);
+  color: var(--text);
   margin-bottom: 20px;
 }
 
@@ -168,10 +168,6 @@
   font-weight: bold;
 }
 
-/*Tecnologías utilizadas*/
-
-/*Posibles mejoras futuras*/
-
 /*Footer*/
 .help-footer {
   display: flex;
@@ -201,19 +197,3 @@
     grid-template-columns: repeat(1, 100%);
   }
 }
-
-/*Continuar:
--✅Estilar footer.
--✅Animar botón de volver a chat.
--✅Estilar y agregar funciones interactivas al popup.
--✅Ruta protegida de página Ayuda.
--✅Hacer que funcione la configuración 'Idioma' del popup.
--Respuestas automáticas a cada msj enviado. (Sólo disponibles para contactos online).
--Agregar lupa al search del sidebar.
--Diseño simulando el escribiendo.
--Detallar colores de los estilos. Controlar que todo esté estético.
--Eliminar comentarios innecesarios y código excesivo. Que quede lo más limpio posible.
--✅Crear el REDME.md: describiendo brevemente las nuevas funcionalidades implementadas.
--Releer y optimizar el contenido textual de la página help.
--Entregar.
-*/

@@ -23,7 +23,7 @@ export default function Chat() {
   if (!user) {
     return (
       <div className="user-not-found">
-        <p>No hay usuario seleccionado...</p>
+        <p>{text.userNotFound}</p>
       </div>
     )
   }
@@ -110,7 +110,7 @@ export default function Chat() {
             <div className="conteiner">
               <label><h4>{text.themeLabel}</h4></label>
               <label className="switch">
-                <input type="checkbox" className="input" onClick={toggleTheme} />
+                <input type="checkbox" className="input" onChange={toggleTheme} />
                 {theme === "dark" ? "light" : "dark"}
                 <div className="rail">
                   <span className="circle"></span>
@@ -131,8 +131,8 @@ export default function Chat() {
             <div id="changeLanguage">
               <label><h4>{text.languageLabel}</h4></label>
               <select name="" id="selector" onChange={toggleLanguage}>
-                <option value="es">{text.languageSpanish}</option>
                 <option value="en">{text.languageEnglish}</option>
+                <option value="es">{text.languageSpanish}</option>
               </select><br></br>
             </div>
             <div className="cont-btn-save">
@@ -151,7 +151,7 @@ export default function Chat() {
                 className="chat-avatar"
               />
               <strong>{user.name}</strong>
-              {user.lastSeen !== "" && <span className="last-seen">Last seen: {user.lastSeen}</span>}
+              {user.lastSeen !== "" && <span className="last-seen">{text.lastSeen} {user.lastSeen}</span>}
             </div>
           </div>
 

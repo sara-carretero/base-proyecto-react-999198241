@@ -31,7 +31,7 @@ export default function Sidebar() {
       />
 
       {usersToRender.length === 0 && (
-        <p className="search-result">No search found...</p>
+        <p className="search-result">{text.searchResult}</p>
       )}
 
       <ul className="user-list">

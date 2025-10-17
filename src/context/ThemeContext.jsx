@@ -23,6 +23,8 @@ export function getInitialTheme(storageKey = THEME_STORAGE_KEY, fallback = "ligh
   }
 }
 
+
+
 //Armo el proveedor del theme
 const ThemeProvider = ({ children }) => {
 

@@ -14,6 +14,7 @@ const Login = () => {
 
   const PASS = "pepe123"
 
+
   //() => Redirigir al usuario al chat si ya abrió sesión y quiere volver al Login.
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn")
@@ -29,12 +30,12 @@ const Login = () => {
     if (password === PASS) {
       //Guarda los datos en el LocalStorage al abrir sesión.
       localStorage.setItem("isLoggedIn", "true")
-      setMessage("Contraseña valida, serás redirigido.")
+      setMessage(text.passwordCorrect)
       setTimeout(() => {
         navigate("/chat")
       }, 3000)
     } else {
-      setError("Contraseña invalida, intentelo nuevamente")
+      setError(text.passwordError)
     }
   }
 

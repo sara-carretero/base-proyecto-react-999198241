@@ -1,8 +1,10 @@
 import { createContext, useContext, useState, useEffect } from "react"
+import { useLanguage } from "./LanguageContext"
 
 const ChatContext = createContext()
 
 const ChatProvider = ({ children }) => {
+  const { text } = useLanguage()
   // 1. Estado de usuarios
   // Inicializamos vacío; luego lo cargamos de localStorage o mock
   const [users, setUsers] = useState([])
@@ -24,7 +26,7 @@ const ChatProvider = ({ children }) => {
           id: 1,
           name: "Juan perez",
           status: "online",
-          lastSeen: "",
+          lastSeen: text.statusOn,
           messages: [
             { id: 1, text: "Hola, como estas?", time: "00:40" }
           ]
@@ -33,7 +35,7 @@ const ChatProvider = ({ children }) => {
           id: 2,
           name: "Marita Rodriguez",
           status: "offline",
-          lastSeen: "3 hours ago",
+          lastSeen: text.statusOff1,
           messages: [
             { id: 1, text: "RESPONDEEEE QUE TENGO HAMBREE!", time: "15:00" },
             { id: 2, text: "estoy desde las 12 en el banco!!", time: "15:10" },
@@ -44,7 +46,7 @@ const ChatProvider = ({ children }) => {
           id: 3,
           name: "Luka Nicolas Piaggi",
           status: "online",
-          lastSeen: "",
+          lastSeen: text.statusOn,
           messages: [
             { id: 1, text: "Me encanta programación!!", time: "19:00" },
             { id: 2, text: "El profe es un capo!!!!!", time: "19:01" }
@@ -54,7 +56,7 @@ const ChatProvider = ({ children }) => {
           id: 4,
           name: "Lucas Hernan Figueroa",
           status: "offline",
-          lastSeen: "1 minute ago",
+          lastSeen: text.statusOff2,
           messages: [
             { id: 1, text: "Estoy en programación, después te mando...", time: "18:59" }
           ]

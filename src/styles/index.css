@@ -313,6 +313,30 @@ html.light {
   transition: background-color .2s ease, color .2s ease;
 }
 
+/*Botón de Header Chat - volver a ver contactos*/
+.chat-backBtn {
+  display: none;
+  background-color: none;
+  color: #333;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.chat-backBtn:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.1);
+}
+
+.chat-backBtn:active {
+  transform: scale(0.95);
+}
+
 
 /* Resposive mínimo para mobile */
 @media (max-width: 780px) {
@@ -331,6 +355,13 @@ html.light {
 
 /* Resposive mínimo para mobile */
 @media (max-width: 660px) {
+
+  .chat-backBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .chat {
     position: fixed;
     width: 100%;

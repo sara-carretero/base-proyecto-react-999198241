@@ -157,7 +157,7 @@ export default function Chat() {
           <div>
             <div className="chat-user">
               <button onClick={handleGoBack} className="chat-backBtn" title={text.viewContactsBtn}>
-                ⬅
+                ←
               </button>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4YreOWfDX3kK-QLAbAL4ufCPc84ol2MA8Xg&s"

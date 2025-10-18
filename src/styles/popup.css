@@ -64,29 +64,35 @@
   height: 15px;
   background-color: #ffffff;
   border-radius: 3rem;
-  /* Oculta el pseudo-elemento al salirse */
   overflow: hidden;
-  transition: background-color 0.4s;
   z-index: 0;
 }
 
-/* Pseudo-elemento que simula el color que se "desplaza" */
+/* Gradiente oculto por defecto */
 .popup .conteiner .switch .rail::before {
   content: "";
   position: absolute;
   top: 0;
-  left: -100%;
-  /* Inicia fuera del rail */
-  width: 100%;
+  left: 0;
+  width: 200%;
   height: 100%;
-  background-color: #151922;
-  /* Color del switch activo */
-  transition: left 0.4s ease;
+  background: linear-gradient(90deg, #bb00ff, #2d8fff, #00ffcc, #ff00cc, #bb00ff, #0065d080, #97c7fabb, #ffffff, #bb00ff);
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
   z-index: 0;
 }
 
+/* Cuando el switch está activado: mostrar gradiente y animarlo */
+.popup .conteiner .switch .input:checked~.rail::before {
+  opacity: 1;
+  animation: gradientLoop 4s linear infinite;
+}
+
+/* Círculo del switch */
 .popup .conteiner .switch .circle {
-  margin-left: 40%;
+  margin-left: 37%;
   position: absolute;
   top: 50%;
   left: 0;
@@ -95,18 +101,25 @@
   height: 20px;
   background-color: rgb(95, 95, 95);
   border-radius: 50%;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* rebote suave */
   z-index: 2;
 }
 
-/* Cuando el input está activado (checked) */
-.popup .conteiner .switch .input:checked~.rail::before {
-  left: 0;
-  /* Se desplaza desde izquierda a derecha */
+/* Movimiento del círculo */
+.popup .conteiner .switch .input:checked~.circle {
+  transform: translate(54px, -50%);
 }
 
-.popup .conteiner .switch .input:checked~.circle {
-  transform: transLate(54px, -50%);
+/* Animación del gradiente en bucle */
+@keyframes gradientLoop {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 /*Fin estilos para animar el switch*/

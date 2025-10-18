@@ -127,11 +127,12 @@
 }
 
 .interactive {
-  transition: ease-in-out, 0.2s;
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
 }
 
 .interactive:hover {
   transform: translateY(-8px);
+  filter: brightness(1.1);
 }
 
 .functions {

@@ -80,8 +80,8 @@ const Help = () => {
               <p>Biblioteca para interfaces de usuario</p>
             </div>
             <div className="box-item interactive">
-              <h3>📘 TypeScript</h3>
-              <p>JavaScript con tipado estático</p>
+              <h3>🎨 CSS</h3>
+              <p>Estilos y animaciones visuales.</p>
             </div>
             <div className="box-item interactive">
               <h3>🧭React Router</h3>
@@ -106,12 +106,20 @@ const Help = () => {
               <p> Almacenar los usuarios y mensajes en una base de datos en lugar de localStorage permitiría mantener los datos incluso desde diferentes dispositivos. para almacenar mensajes de forma permanente y sincronizar entre dispositivos.</p>
             </div>
             <div className="box-item">
+              <h3>🔑 Autenticación real</h3>
+              <p> Agregar un sistema de login/registro con autenticación para permitir inicio de sesión con Google, GitHub o Facebook, además de autenticación básica de Usuario y Constraseña.</p>
+            </div>
+            <div className="box-item">
               <h3>🖼️ Soporte multimedia</h3>
               <p> Permitir el envío de imágenes, videos, audios y archivos adjuntos en las conversaciones.</p>
             </div>
             <div className="box-item">
               <h3>🔔 Notificaciones</h3>
               <p>  Añadir notificaciones del navegador en tiempo real para alertar a los usuarios cuando reciban nuevos mensajes, incluso si la aplicación está en segundo plano.</p>
+            </div>
+            <div className="box-item">
+              <h3>🗯️Indicadores de Estado</h3>
+              <p> Mostrar indicadores visuales como "escribiendo...", "en línea", "mensajes leídos" con doble check, etc.</p>
             </div>
             <div className="box-item">
               <h3>🔎 Búsqueda de Mensajes</h3>
@@ -126,18 +134,12 @@ const Help = () => {
               <p>  Implementar cifrado de extremo a extremo para garantizar que solo los participantes de la conversación puedan leer los mensajes.</p>
             </div>
             <div className="box-item">
-              <h3>🗯️Indicadores de Estado</h3>
-              <p> Mostrar indicadores visuales como "escribiendo...", "en línea", "mensajes leídos" con doble check, etc.</p>
-            </div>
-            <div className="box-item">
-              <h3>🌎 Internacionalización</h3>
-              <p> Soporte para varios idiomas en la interfaz de usuario.</p>
+              <h3>🪄 Temas y Personalización</h3>
+              <p> Permitir al usuario personalizar la apariencia de la aplicación con colores y diseños personalizados.</p>
             </div>
           </div>
-
         </section>
       </main>
-
       <footer className="help-footer">
         <p> Clon de Whatsapp </p>
         <p>&copy; 2025 Proyecto frontend - Curso Fullstack UTN</p>

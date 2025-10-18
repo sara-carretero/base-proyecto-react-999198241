@@ -33,18 +33,16 @@ const ChatProvider = ({ children }) => {
         },
         {
           id: 2,
-          name: "Marita Rodriguez",
+          name: "Leonel Messi",
           status: "offline",
           lastSeen: text.statusOff1,
           messages: [
-            { id: 1, text: "RESPONDEEEE QUE TENGO HAMBREE!", time: "15:00" },
-            { id: 2, text: "estoy desde las 12 en el banco!!", time: "15:10" },
-            { id: 3, text: "ahora voy a casa, llevo empanadas :)", time: "20:00" }
+            { id: 1, text: "Estoy en programación, después te mando...", time: "18:59" }
           ]
         },
         {
           id: 3,
-          name: "Luka Nicolas Piaggi",
+          name: "Sara Carretero",
           status: "online",
           lastSeen: text.statusOn,
           messages: [
@@ -54,11 +52,13 @@ const ChatProvider = ({ children }) => {
         },
         {
           id: 4,
-          name: "Lucas Hernan Figueroa",
+          name: "Marita Rodriguez",
           status: "offline",
           lastSeen: text.statusOff2,
           messages: [
-            { id: 1, text: "Estoy en programación, después te mando...", time: "18:59" }
+            { id: 1, text: "RESPONDEEEE QUE TENGO HAMBREE!", time: "15:00" },
+            { id: 2, text: "estoy desde las 12 en el banco!!", time: "15:10" },
+            { id: 3, text: "ahora voy a casa, llevo empanadas :)", time: "20:00" }
           ]
         }
       ]

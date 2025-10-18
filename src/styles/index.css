@@ -328,9 +328,21 @@ html.light {
   }
 }
 
+
+/* Resposive mínimo para mobile */
 @media (max-width: 660px) {
+  .chat {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
   .sidebar {
-    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
   }
 
   .chat-header #view-contactsBtn {
@@ -340,8 +352,10 @@ html.light {
     cursor: pointer;
     font-size: 16px;
   }
+
 }
 
+/* Resposive mínimo para mobile */
 @media (max-width:450px) {
   .chat-actions .actionsBtn {
     display: none;
@@ -362,7 +376,6 @@ html.light {
     background: var(--card);
     border: 1px solid var(--border);
     border-radius: 8px;
-    z-index: 1000;
   }
 
   .optionBtn button,
@@ -378,8 +391,8 @@ html.light {
 
   .optionBtn button:hover,
   .optionBtn #linkHelp:hover {
-    width: 100%;
     background: var(--border);
   }
+
 
 }

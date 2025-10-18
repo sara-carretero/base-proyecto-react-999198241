@@ -197,3 +197,14 @@
     grid-template-columns: repeat(1, 100%);
   }
 }
+
+@media (max-width: 430px) {
+
+  .header #title {
+    font-size: 25px;
+  }
+
+  .header #linkChat {
+    font-size: 10px;
+  }
+}

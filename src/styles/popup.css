@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(2px);
+  z-index: 1000;
 }
 
 .cont-popup .popup {
@@ -145,3 +146,5 @@
 .cont-popup #btn-save:active {
   transform: translateY(1px);
 }
+
+@media (max-width: 780px) {}

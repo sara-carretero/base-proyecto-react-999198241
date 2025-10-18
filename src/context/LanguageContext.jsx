@@ -26,6 +26,7 @@ const TEXTS = {
 
     //Chat
     userNotFound: "No hay usuario seleccionado...",
+    viewContactsBtn: "Ver contactos",
     cameraBtn: "Cámara",
     galleryBtn: "Galería",
     settingsBtn: "Configuración",
@@ -47,7 +48,7 @@ const TEXTS = {
 
     //Help
     helpTitle: "Documentación",
-    helpBtn: "Volver al Chat",
+    helpBackBtn: "Volver al Chat",
     helpFooter: "Proyecto frontend - Curso Fullstack UTN",
 
     language: "Español", homeTitle: "Inicio", profileTitle: "Perfil", toggleBtn: "Cambiar a Inglés"
@@ -73,6 +74,7 @@ const TEXTS = {
 
     //Chat
     userNotFound: "No user selected...",
+    viewContactsBtn: "View contacts",
     cameraBtn: "Camera",
     galleryBtn: "Gallery",
     settingsBtn: "Settings",

@@ -12,8 +12,9 @@ export default function Chat() {
   const { text, language, toggleLanguage } = useLanguage()
   const [showMenu, setShowMenu] = useState(false);
 
+
   // 1. Obtenemos del contexto todo lo necesario
-  const { users, selectedUser, setUsers } = useChat()
+  const { users, selectedUser, setUsers, setSelectedUser } = useChat()
 
 
   // 2. Buscamos el usuario activo
@@ -93,8 +94,13 @@ export default function Chat() {
     setName("")
 
   }
-
+  //Mostrar menú hamburguesa en momentos responsive.
   const toggleMenu = () => setShowMenu(prev => !prev);
+
+  //Visualizar el sidebar en momentos responsive.
+  const handleGoBack = () => {
+    setSelectedUser(null) // Esto deselecciona el usuario
+  }
 
 
   return (
@@ -145,15 +151,15 @@ export default function Chat() {
         <header className="chat-header">
           <div>
             <div className="chat-user">
-              <div>
-                <button title={"contacts"} id="view-contactsBtn">⬅️</button>
-              </div>
+              <button onClick={handleGoBack} className="chat-backBtn" title={text.viewContactsBtn}>
+                ⬅
+              </button>
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4YreOWfDX3kK-QLAbAL4ufCPc84ol2MA8Xg&s"
                 alt={user.name}
                 className="chat-avatar"
               />
-              <div class="user-name">
+              <div className="user-name">
                 <strong>{user.name}</strong>
                 {user.lastSeen !== "" && <span className="last-seen">{text.lastSeen} {user.lastSeen}</span>}
               </div>

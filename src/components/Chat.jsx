@@ -5,22 +5,22 @@ import { useLanguage } from "../context/LanguageContext"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function Chat() {
-  const [msg, setMsg] = useState("")
-  const [name, setName] = useState()
-  const [showPopup, setShowPopup] = useState(false)
-  const { theme, toggleTheme } = useTheme()
-  const { text, language, toggleLanguage } = useLanguage()
-  const [showMenu, setShowMenu] = useState(false)
-
-
-
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers, setSelectedUser } = useChat()
-
-
-
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
+
+  const [msg, setMsg] = useState("")
+  const [showPopup, setShowPopup] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
+  const { theme, toggleTheme } = useTheme()
+  const { text, language, toggleLanguage } = useLanguage()
+
+
+  //Guardar cambios temporales del popup previo a guardar cambios.
+  const [tempTheme, setTempTheme] = useState(theme)
+  const [tempLanguage, setTempLanguage] = useState(language)
+  const [tempName, setTempName] = useState(user?.name ?? "")
 
   const navigate = useNavigate()
   // Cerrar el menú hamburguesa al hacer clic fuera
@@ -84,6 +84,10 @@ export default function Chat() {
   }
 
   const handleShowPopup = () => {
+    setTempTheme(theme)
+    setTempLanguage(language)
+    setTempName(user.name)
+
     setShowPopup(true)
   }
 
@@ -91,26 +95,30 @@ export default function Chat() {
     setShowPopup(false)
   }
 
-  const handleRename = (event) => {
-    setName(event.target.value)
-  }
-
   //() => Botón para guardar los cambios de nombre se usuario.
-  const handleSave = (event) => {
-    event.preventDefault()
+  const handleSave = (e) => {
+    e.preventDefault()
 
-    const newName = name
+    // Aplicar tema
+    if (tempTheme !== theme) {
+      toggleTheme()
+    }
 
-    if (newName.length > 0) {
+    // Aplicar idioma
+    if (tempLanguage !== language) {
+      toggleLanguage({ target: { value: tempLanguage } })
+    }
+
+    // Guardar nombre
+    const newName = tempName.trim()
+    if (newName.length > 0 && newName !== user.name) {
       const updatedUsers = users.map(u =>
-        u.id === user.id
-          ? { ...u, name: [newName] }
-          : u
+        u.id === user.id ? { ...u, name: newName } : u
       )
       setUsers(updatedUsers)
     }
 
-    setName("")
+    setShowPopup(false)
 
   }
 
@@ -140,13 +148,16 @@ export default function Chat() {
               <label><h4>{text.themeLabel}</h4></label>
               <div class="cont-switch">
                 <label className="switch">
-                  <input type="checkbox" className="input" onChange={toggleTheme} checked={theme === 'dark'} />
+                  <input type="checkbox"
+                    className="input"
+                    onChange={() => setTempTheme(tempTheme === 'dark' ? 'light' : 'dark')}
+                    checked={tempTheme === 'dark'} />
                   {theme === "dark" ? text.themeDark : text.themeLight}
                   <div className="rail">
                   </div>
                   <span className="circle"></span>
                 </label>
-                <div class="icon">
+                <div className="icon">
                   {theme === "dark" ? "🌙" : "☀️"}
                 </div>
               </div>
@@ -158,13 +169,16 @@ export default function Chat() {
               <input
                 type="text"
                 placeholder={text.renameUserInput}
-                onChange={handleRename}
-                value={name}
+                onChange={(e) => setTempName(e.target.value)}
+                value={tempName}
               />
             </div>
             <div id="changeLanguage">
               <label><h4>{text.languageLabel}</h4></label>
-              <select id="selector" value={language} onChange={toggleLanguage} >
+              <select
+                id="selector"
+                value={tempLanguage}
+                onChange={(e) => setTempLanguage(e.target.value)} >
                 <option value="en">{text.languageEnglish}</option>
                 <option value="es">{text.languageSpanish}</option>
               </select><br></br>

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useChat } from "../context/ChatContext"
 import { useTheme } from "../context/ThemeContext";
 import { useLanguage } from "../context/LanguageContext"
@@ -10,17 +10,35 @@ export default function Chat() {
   const [showPopup, setShowPopup] = useState(false)
   const { theme, toggleTheme } = useTheme()
   const { text, language, toggleLanguage } = useLanguage()
-  const [showMenu, setShowMenu] = useState(false);
+  const [showMenu, setShowMenu] = useState(false)
+
 
 
   // 1. Obtenemos del contexto todo lo necesario
   const { users, selectedUser, setUsers, setSelectedUser } = useChat()
 
 
+
   // 2. Buscamos el usuario activo
   const user = users.find(u => u.id === selectedUser)
 
   const navigate = useNavigate()
+  // Cerrar el menú hamburguesa al hacer clic fuera
+  const menuRef = useRef(null);
+  // Cerrar el menú al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showMenu && menuRef.current && !menuRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [showMenu]);
 
   if (!user) {
     return (
@@ -29,6 +47,7 @@ export default function Chat() {
       </div>
     )
   }
+
 
   // 3. Manejo del input
   const handleChange = (event) => {
@@ -94,8 +113,12 @@ export default function Chat() {
     setName("")
 
   }
+
   //Mostrar menú hamburguesa en momentos responsive.
-  const toggleMenu = () => setShowMenu(prev => !prev);
+  const toggleMenu = () => {
+    setShowMenu(prev => !prev);
+  }
+
 
   //Visualizar el sidebar en momentos responsive.
   const handleGoBack = () => {
@@ -174,7 +197,7 @@ export default function Chat() {
 
           <div className="chat-actions">
 
-            <div className="chat-menu">
+            <div className="chat-menu" ref={menuRef}>
               {/* Botón hamburguesa */}
               <button
                 className="hamburgerBtn"

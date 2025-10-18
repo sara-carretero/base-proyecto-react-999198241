@@ -415,6 +415,16 @@ html.light {
     border: none;
     font-size: 25px;
     cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+  }
+
+  .chat-actions .chat-menu .hamburgerBtn:hover {
+    transform: scale(1.15);
+    color: var(--accent, #4a90e2);
+  }
+
+  .chat-actions .chat-menu .hamburgerBtn:active {
+    transform: scale(0.95);
   }
 
   .optionBtn {
@@ -440,11 +450,18 @@ html.light {
     text-align: left;
     transition: background-color 0.2s;
     cursor: pointer;
+
   }
 
   .optionBtn button:hover,
   .optionBtn #linkHelp:hover {
     background: var(--border);
+    transform: scale(1.1);
+
+  }
+
+  .chat-actions .chat-menu .hamburgerBtn:active {
+    transform: scale(0.95);
   }
 
 

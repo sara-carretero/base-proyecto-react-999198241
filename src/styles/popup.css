@@ -45,15 +45,12 @@
 
 /*ESTILOS DE CAMBIAR TEMA CLARO/OSCURO*/
 
+/*Inicio estilos para animar el switch*/
 .popup .conteiner .switch {
-  height: 30px;
-  background-color: #aeaeae;
-  padding: 0 1.5rem;
-  border-radius: 0.8rem;
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
-  width: 90%;
 }
 
 .popup .conteiner .switch .input {
@@ -61,42 +58,72 @@
 }
 
 .popup .conteiner .switch .rail {
+  margin-left: 10px;
   position: relative;
   width: 60px;
   height: 15px;
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 3rem;
+  /* Oculta el pseudo-elemento al salirse */
+  overflow: hidden;
+  transition: background-color 0.4s;
+  z-index: 0;
 }
 
-.popup .conteiner .switch .rail .circle {
-  display: block;
+/* Pseudo-elemento que simula el color que se "desplaza" */
+.popup .conteiner .switch .rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  /* Inicia fuera del rail */
+  width: 100%;
+  height: 100%;
+  background-color: #151922;
+  /* Color del switch activo */
+  transition: left 0.4s ease;
+  z-index: 0;
+}
+
+.popup .conteiner .switch .circle {
+  margin-left: 40%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
   width: 20px;
   height: 20px;
   background-color: rgb(95, 95, 95);
   border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: transLateY(-50%);
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+/* Cuando el input está activado (checked) */
+.popup .conteiner .switch .input:checked~.rail::before {
   left: 0;
-  transition: transform 0.4s;
+  /* Se desplaza desde izquierda a derecha */
 }
 
-.popup .conteiner .switch .indicator {
-  width: 10px;
-  height: 10px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin-left: 1.5rem;
-  transition: 0.4s;
-}
-
-.popup .conteiner .switch .input:checked~.rail .circle {
+.popup .conteiner .switch .input:checked~.circle {
   transform: transLate(54px, -50%);
 }
 
-.popup .conteiner .switch .input:checked~.indicator {
+/*Fin estilos para animar el switch*/
 
-  background-color: black;
+.popup .conteiner .switch .icon {
+  font-size: 20px;
+  padding-left: 50px;
+}
+
+.popup .conteiner .cont-switch {
+  border-radius: 0.8rem;
+  background-color: #aeaeae;
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  padding: 0 1.5rem;
+  width: 90%;
 }
 
 /*ESTILOS DE CAMBIAR NOMBRE DE USUARIO*/
@@ -147,4 +174,31 @@
   transform: translateY(1px);
 }
 
-@media (max-width: 780px) {}
+@media (max-width: 1200px) {
+  .cont-popup .popup {
+    width: 40%;
+  }
+}
+
+@media (max-width: 800px) {
+  .cont-popup .popup {
+    width: 50%;
+  }
+}
+
+@media (max-width: 390px) {
+  .cont-popup .popup {
+    width: 70%;
+  }
+
+  .switch,
+  .input,
+  .rail,
+  .circle {
+    font-size: 15px;
+  }
+
+  label {
+    display: none;
+  }
+}

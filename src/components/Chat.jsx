@@ -115,21 +115,26 @@ export default function Chat() {
 
             <div className="conteiner">
               <label><h4>{text.themeLabel}</h4></label>
-              <label className="switch">
-                <input type="checkbox" className="input" onChange={toggleTheme} checked={theme === 'dark'} />
-                {theme === "dark" ? text.themeDark : text.themeLight}
-                <div className="rail">
+              <div class="cont-switch">
+                <label className="switch">
+                  <input type="checkbox" className="input" onChange={toggleTheme} checked={theme === 'dark'} />
+                  {theme === "dark" ? text.themeDark : text.themeLight}
+                  <div className="rail">
+                  </div>
                   <span className="circle"></span>
+                </label>
+                <div class="icon">
+                  {theme === "dark" ? "🌙" : "☀️"}
                 </div>
-                <span className="indicator"></span>
-              </label>
+              </div>
+
             </div>
 
             <div id="changeName">
               <label><h4>{text.renameUserLabel}</h4></label>
               <input
                 type="text"
-                placeholder="Rename"
+                placeholder={text.renameUserInput}
                 onChange={handleRename}
                 value={name}
               />
@@ -145,7 +150,7 @@ export default function Chat() {
               <button id="btn-save" onClick={handleSave}>{text.popupSaveBtn}</button>
             </div>
           </div>
-        </section>
+        </section >
       }
       <div className="chat">
         <header className="chat-header">

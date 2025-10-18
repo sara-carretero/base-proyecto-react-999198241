@@ -33,6 +33,7 @@ const TEXTS = {
     helpBtn: "Ayuda",
     signoutBtn: "Cerrar sesión",
     msjInput: "Ingrese texto aquí...",
+    menuBtn: "Menú",
 
     //Popup
     popupTitle: "Configuración",
@@ -81,6 +82,7 @@ const TEXTS = {
     helpBtn: "Help",
     signoutBtn: "Sign out",
     msjInput: "Enter text here...",
+    menuBtn: "Menu",
 
     //Popup
     popupTitle: "Settings",

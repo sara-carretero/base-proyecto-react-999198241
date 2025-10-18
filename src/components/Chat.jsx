@@ -180,6 +180,7 @@ export default function Chat() {
                 className="hamburgerBtn"
                 onClick={toggleMenu}
                 aria-label="Toggle menu"
+                title={text.menuBtn}
               >
                 ☰
               </button>

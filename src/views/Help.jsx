@@ -135,7 +135,7 @@ const Help = () => {
             </div>
             <div className="box-item">
               <h3>🪄 Temas y Personalización</h3>
-              <p> Permitir al usuario personalizar la apariencia de la aplicación con colores y diseños personalizados.</p>
+              <p> Permitir al usuario personalizar la apariencia de la aplicación con colores y diseños a elección.</p>
             </div>
           </div>
         </section>

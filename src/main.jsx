@@ -7,6 +7,7 @@ import { ChatProvider } from './context/ChatContext.jsx'
 import './styles/index.css'
 import './styles/help.css'
 import './styles/popup.css'
+import './styles/notFound.css'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

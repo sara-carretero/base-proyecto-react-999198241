@@ -1,4 +1,4 @@
-section {
+.not-found {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,13 +10,13 @@ section {
   min-height: 100vh;
 }
 
-section h1 {
+.not-found h1 {
   font-size: 2.5rem;
   color: var(--title);
   margin-bottom: 1rem;
 }
 
-section p {
+.not-found p {
   font-size: 1.125rem;
   color: var(--text2);
   margin-bottom: 2rem;
@@ -24,7 +24,7 @@ section p {
   padding: 0 1rem;
 }
 
-section a {
+.not-found a {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -38,29 +38,29 @@ section a {
   font-size: 1rem;
 }
 
-section a i {
+.not-found a i {
   font-size: 1.25rem;
 }
 
-section a:hover {
+.not-found a:hover {
   background-color: var(--title);
   transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-  section {
+  .not-found {
     padding: 3rem 1rem;
   }
 
-  section h1 {
+  .not-found h1 {
     font-size: 2rem;
   }
 
-  section p {
+  .not-found p {
     font-size: 1rem;
   }
 
-  section a {
+  .not-found a {
     font-size: 0.95rem;
     padding: 0.6rem 1.25rem;
   }
@@ -68,15 +68,15 @@ section a:hover {
 
 
 @media (max-width: 480px) {
-  section h1 {
+  .not-found h1 {
     font-size: 1.75rem;
   }
 
-  section p {
+  .not-found p {
     font-size: 0.95rem;
   }
 
-  section a {
+  .not-found a {
     width: 100%;
     justify-content: center;
     font-size: 1rem;

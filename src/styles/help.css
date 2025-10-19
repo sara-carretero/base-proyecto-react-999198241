@@ -193,7 +193,7 @@
   font-size: 13px;
 }
 
-@media (max-width: 780px) {
+@media (max-width: 1240px) {
   .box-conteiner {
     grid-template-columns: repeat(1, 100%);
   }

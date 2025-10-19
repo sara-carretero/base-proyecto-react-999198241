@@ -40,6 +40,8 @@ export default function Chat() {
     };
   }, [showMenu]);
 
+
+
   if (!user) {
     return (
       <div className="user-not-found">
@@ -83,6 +85,7 @@ export default function Chat() {
     navigate("/")
   }
 
+  //Al abrir el popup, los cambios se guardan temporalmente. Si se cierra no se reflejan en la página.
   const handleShowPopup = () => {
     setTempTheme(theme)
     setTempLanguage(language)
@@ -95,16 +98,16 @@ export default function Chat() {
     setShowPopup(false)
   }
 
-  //() => Botón para guardar los cambios de nombre se usuario.
+  //() => Botón para guardar los cambios del popup.
   const handleSave = (e) => {
     e.preventDefault()
 
-    // Aplicar tema
+    // Guardar tema
     if (tempTheme !== theme) {
       toggleTheme()
     }
 
-    // Aplicar idioma
+    // Guardar idioma
     if (tempLanguage !== language) {
       toggleLanguage({ target: { value: tempLanguage } })
     }
@@ -134,6 +137,8 @@ export default function Chat() {
   }
 
 
+
+
   return (
     <>
       {
@@ -146,7 +151,7 @@ export default function Chat() {
 
             <div className="conteiner">
               <label><h4>{text.themeLabel}</h4></label>
-              <div class="cont-switch">
+              <div className="cont-switch">
                 <label className="switch">
                   <input type="checkbox"
                     className="input"

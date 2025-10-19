@@ -17,10 +17,31 @@
   flex-direction: column;
 }
 
-.search {
+.input-search {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  /* o ajusta según necesidad */
+}
+
+.input-search .search {
   padding: 10px;
   border: none;
   border-bottom: 1px solid var(--border);
+  width: 100%;
+  padding-right: 35px;
+  height: 36px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.input-search i {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
 }
 
 .search-result {

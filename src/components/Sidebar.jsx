@@ -23,12 +23,16 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <input
-        type="text"
-        placeholder={text.searchInput}
-        className="search"
-        onChange={handleChange}
-      />
+
+      <div className="input-search">
+        <input
+          type="text"
+          placeholder={text.searchInput}
+          className="search"
+          onChange={handleChange}
+        />
+        <i class='bx  bx-search'  ></i>
+      </div>
 
       {usersToRender.length === 0 && (
         <p className="search-result">{text.searchResult}</p>

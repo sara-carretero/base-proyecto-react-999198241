@@ -1,15 +1,37 @@
 <!-- .md significa markdown -->
-# Documentación app Clon de Whatsapp
+# 📱 Documentación - App Clon de WhatsApp
 ---
-## Nuevas funcionalidades implementadas:
 
-##### 1. Dentro del chat, se encuentran botones de acciones, el botón *"Configuración"* o *"Settings"* abre una ventana emergente (popup), la cual muestra las siguientes funcionalidades:
+## ✅ Nuevas funcionalidades implementadas
 
+### 1. ⚙️ Botón de *Configuración* dentro del chat
 
-- **:bulb:Theme Dark/light:** Modifica el color de las páginas visuales simulando un cambio de luz clara y oscura.
+Dentro del chat, se encuentra un botón de acciones llamado *"Configuración"* o *"Settings"*, el cual abre una ventana emergente (popup) que muestra las siguientes funcionalidades:
 
- - **🪪 User name / Rename:** Modifica el nombre el usuario seleccionado, manteniendo el cambio incluso cambiando de página o cerrando el navegador.
- <br>
- - **:page_facing_up:Language Spanish/English:** Modifica el contenido textual de toda la app (inclusive la página "Help") al idioma elegido.
+- 💡 **Tema claro/oscuro (Dark/Light Theme):** Permite cambiar entre un tema visual claro u oscuro en toda la aplicación.
+- 🪪 **Nombre de usuario / Cambiar nombre (User name / Rename):** Permite modificar el nombre del usuario seleccionado. El cambio se mantiene incluso al navegar entre páginas, al cerrar y reabrir el navegador y al cerrar e iniciar sesión nuevamente.
+- 📄 **Idioma Español/Inglés (Language Spanish/English):** Cambia el contenido textual de toda la app (incluyendo la página *Help*) al idioma seleccionado.
+
+⚠️ **Importante:**  
+Los cambios se guardan en `localStorage` al hacer clic en el botón **Guardar cambios**. Si se cierra el popup haciendo clic en la ❌ sin guardar, los cambios **no se aplicarán**.
+
 ---
-##### 2. Página help: Contiene información general del proyecto, con elementos interactivos en el apartado de "Tecnologías utilizadas".
+
+### 2. 📱 Animaciones responsive
+
+La aplicación es completamente adaptable a distintos tamaños de pantalla.
+
+- **Modo celular:**
+  - En la vista del chat, se alterna la visibilidad del chat y la lista de contactos según sea necesario.
+  - En el encabezado del chat, se muestra un menú tipo *hamburguesa* que permite acceder a las opciones de configuración del chat.
+  - Las acciones de este menú pueden seleccionarse también mediante el teclado.
+  - Al hacer clic fuera del menú, este se cierra automáticamente.
+
+---
+
+### 3. 🆘 Página "Help"
+
+- Contiene información general del proyecto.
+- Incluye elementos interactivos en el apartado de **Tecnologías utilizadas**, permitiendo al usuario conocer más sobre las herramientas empleadas en el desarrollo.
+
+---

@@ -60,13 +60,15 @@ export default function Chat() {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+    if (msg.trim() === "") return; //Evita que se envíen mensajes vacíos
+
     const newMessage = {
       id: crypto.randomUUID(),
       text: msg,
       time: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })
     }
 
-    // ✅ Actualizamos el estado de manera INMUTABLE
+    // Actualizamos el estado de manera INMUTABLE
     const updatedUsers = users.map(u =>
       u.id === user.id
         ? { ...u, messages: [...u.messages, newMessage] }
